@@ -15,3 +15,5 @@ This module combines concepts and practical knowledge gained in previous modules
 
 - [Channel9: Thread Pools](https://channel9.msdn.com/Shows/Going+Deep/Inside-Windows-8-Pedro-Teixeira-Thread-pool)
     - A detailed look under the hood of the modern Windows threadpool implementation.
+- _Windows Internals, Seventh Edition, Part 1_: Pages 297-300
+    - This section gives some information regarding the implementation of the _worker factory_ - the kernel component responsible for spawning new threads utilized by user-mode threadpools.

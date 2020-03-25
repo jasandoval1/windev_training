@@ -50,7 +50,7 @@ Happy hacking.
 - [User Mode Security Mitigations](./user-security-mitigations)
 - [Kernel Mode Security Mitigations](./kernel-security-mitigations)
 - [The Windows Hypervisor and Virtualization Based Security](./virtualization)
-- [The IO Manager and the IO Management API](./io-subsystem)
+- [The IO Subsystem and IO Management APIs](./io-subsystem)
 - [Windows Kernel Development](./kernel-development)
 
 ### Required Materials

@@ -6,3 +6,6 @@ This module provides a brief introduction to the Windows programming environment
 
 - _Windows System Programming, Fourth Edition_: Pages 10-11, 13-20
     - This short section makes the critical distinction between the Win32 API and the API exposed by the Microsoft Visual C Runtime Library (CRT) and gives some guidance for when to rely on either API. The latter section provides a short example of the use of both APIs and enumerates the pros / cons of each. 
+- _Windows Internals, Seventh Edition, Part 1_: Pages 1-8
+    - This section provides a brief overview of some information that is nonetheless incredibly valuable, including the Windows version history and the definition of some critical Windows technologies such as the Win32 API, the .NET Framework (now deprecated in favor of .NET Core), and the Windows Runtime.
+    
