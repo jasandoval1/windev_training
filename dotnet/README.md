@@ -1,0 +1,3 @@
+## The .NET Framework and Managed Application Execution Model
+
+This module provides a (brief) introduction to the .NET Framework and the execution model utilized by managed applications - applications that target the .NET Framework. While the .NET Framework is but one among many technologies built on top of the Windows operating system, it is one that holds a privileged place in the hearts and minds of Microsoft's engineers and Windows application developers alike; a passing familiarity with the framework is a necessary precondition for understanding many of the design decisions introduced in recent versions of Windows.
