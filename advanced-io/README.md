@@ -4,6 +4,10 @@ This module combines concepts and practical knowledge gained in previous modules
 
 ### Reading Material
 
+- _Windows System Programming, Fourth Edition_: Pages 312-324
+    - This section provides and overview of several advanced IO topics, including threadpools, I/O completion ports, and the NT6 threadpool API. 
+- _Windows System Programming, Fourth Edition_: Pages 481-518
+    - This section provides practical examples of utilizing three of the major asynchronous I/O mechanisms available on Windows: overlapped I/O, extended I/O with callback routines, and I/O completion ports.
 - _Windows 10 System Programming_: "Thread Pools"
     - This section provides a concise overview of the updated Win32 threadpool API.
 

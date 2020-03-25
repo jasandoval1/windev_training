@@ -4,5 +4,7 @@ This module enumerates the various methods available to synchronize operations a
 
 ### Reading Material
 
+- _Windows System Programming, Fourth Edition_: Pages 259-279, 309-312, 362-366
+    - These sections cover usage of three user-mode synchronization primitives: critical sections, slim reader-writer locks, and condition variables, respectively.
 - _Windows 10 System Programming_: "Thread Synchronization (Intra-Process)"
     - This section provides an overview of the now-familiar user-mode synchronization primitives and also introduces two new(er) synchronization primitives not explored by the previous references: barriers and waitable addresses.
