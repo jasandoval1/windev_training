@@ -1,5 +1,9 @@
 ## Windows Developer Training Outline
 
+_Updated: March, 2020_
+
+### Overview
+
 This repository contains an outline a training curriculum designed to develop (pun intended) aspiring Windows developers.
 
 The outline provided herein assumes the following background knowledge and skills:
@@ -47,3 +51,20 @@ Happy hacking.
 - [The Windows Hypervisor and Virtualization Based Security](./virtualization)
 - [The IO Manager and the IO Management API](./io-subsystem)
 - [Windows Kernel Development](./kernel-development)
+
+### Required Materials
+
+The list below enumerates the major reading materials referenced throughout this guide:
+
+- _Windows System Programming, Fourth Edition_ By Johnson M. Hart
+- _Windows Via C/C++, Fifth Edition_ by Jeffrey Richter and Christophe Nasarre
+- _Windows Internals, Seventh Edition, Part 1_ by Yosifovich et. al.
+- _Windows Internals, Seventh Edition, Part 2_ by Russinovich et. al. (forthcoming)
+- _Windows Internals, Sixth Edition, Part 1_ by Russinovich et. al.
+- _Windows Internals, Sixth Edition, Part 2_ by Russinovich et. al.
+- _Windows 10 System Programming_ by Pavel Yosifovich
+- _Professional Visual Studio 2017_ by Bruce Johnson
+- _Windows Kernel Programming_ by Pavel Yosifovich
+- _The Rootkit Arsenal, Second Edition_ by Reverend Bill Blunden
+
+In addition to these primary references, additional materials may be listed under the reading materials for a particular topic. In these cases, a mechanism to access the cited material will be provided.
