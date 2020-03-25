@@ -17,31 +17,33 @@ Each module is partitioned into one or more training items. Each of these traini
 
 Happy hacking.
 
+### Training Modules
+
 - [Introduction to Programming on Windows and the Win32 API](./introduction)
 - [Setting up a Development Environment: Visual Studio](./development-environment)
-Working with Strings and Text
-Essential Input / Output Operations
-Handling Errors in Windows Applications
-Windows System Architecture
-Windows Kernel Objects and the Windows Object Manager
-Windows Processes and the Process Management API
-Windows Jobs and the Job Management API
-Windows Threads and the Thread Management API
-Synchronization in User Mode
-Synchronization with Kernel Objects
-Advanced IO Operations in User Mode
-The Windows Memory Manager and the Memory Management API
-The Portable Executable File Format
-Loading and Executing a Windows Executable
-Dynamic Link Libraries
-Windows Service Applications
-System Service Dispatching on Windows
-The Windows Security Model and Programming Windows Security
-Network Programming on Windows
-Windows Management Mechanisms
-The Windows Boot Process
-User Mode Security Mitigations
-Kernel Mode Security Mitigations
-The Windows Hypervisor and Virtualization Based Security
-The IO Manager and the IO Management API
-Windows Kernel Development
+- [Working with Strings and Text](./strings-and-text)
+- [Essential Input / Output Operations](./user-io)
+- [Handling Errors in Windows Applications](./error-handling)
+- [Windows System Architecture](./system-architecture)
+- [Windows Kernel Objects and the Windows Object Manager](./object-manager)
+- [Windows Processes and the Process Management API](./processes)
+- [Windows Jobs and the Job Management API](./jobs)
+- [Windows Threads and the Thread Management API](./threads)
+- [Synchronization in User Mode](./user-synchronization)
+- [Synchronization with Kernel Objects](./kernel-synchronization)
+- [Advanced IO Operations in User Mode](./advanced-io)
+- [The Windows Memory Manager and the Memory Management API](./memory-manager)
+- [The Portable Executable File Format](./pe-format)
+- [Loading and Executing a Windows Executable](./pe-execution)
+- [Dynamic Link Libraries](./dynamic-libraries)
+- [Windows Service Applications](./services)
+- [System Service Dispatching on Windows](./system-service-dispatching)
+- [The Windows Security Model and Programming Windows Security](./security-model)
+- [Network Programming on Windows](./networking)
+- [Windows Management Mechanisms](./management-mechanisms)
+- [The Windows Boot Process](./boot-process)
+- [User Mode Security Mitigations](./user-security-mitigations)
+- [Kernel Mode Security Mitigations](./kernel-security-mitigations)
+- [The Windows Hypervisor and Virtualization Based Security](./virtualization)
+- [The IO Manager and the IO Management API](./io-subsystem)
+- [Windows Kernel Development](./kernel-development)
