@@ -6,6 +6,8 @@ This module will cover the essentials of the error handling facilities provided 
 
 - _Windows Via C/C++, Fifth Edition_: Pages 3-10
     - This section covers the essentials of dealing with errors reported by Win32 API calls.
+- _Windows 10 System Programming_: "Handling API Errors"
+    - This section provides a concise overview of several tactics for dealing with error conditions in Windows applications.
 - _Windows System Programming, Fourth Edition_: Pages 101-126
     - This section covers the essentials of using the structured exception handling (SEH) facility provided by Windows.
 

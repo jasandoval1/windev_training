@@ -8,6 +8,8 @@ This module will cover the essentials of working with strings and text on Window
     - This section introduces the bare necessities of the differing character types used in the Win32 API.
 - _Windows via C/C++, Fifth Edition_: Pages 11-32
     - This section goes into further detail regarding the character sets available under the Win32 API and introduces various methods for working with strings and text including the functions provided by both the Win32 API and the C Runtime Library.
+- _Windows 10 System Programming_: "Working With Strings"
+    - This section provides an updated and abridged look at character and string manipulation under Win32.
 - [MSDN: CRT String Manipulation](https://docs.microsoft.com/en-us/cpp/c-runtime-library/string-manipulation-crt?view=vs-2019)
     - This article provides your one-stop-shop for character and string manipulation functions provided by the C Runtime Library.
 - [MSDN: Strsafe](https://docs.microsoft.com/en-us/windows/win32/menurc/strsafe-ovw)
