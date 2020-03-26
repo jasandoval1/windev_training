@@ -6,6 +6,8 @@ This (information dense) module covers the Windows memory management subsystem a
 
 - _Windows System Programming, Fourth Edition_: Pages 131-149
     - This section gives an overview of the user-mode memory management architecture and the Windows heap API.
+- _Windows System Programming, Fourth Edition_: Pages 149-160
+    - This section introduces the usage of memory-mapped files.
 - Windows Internals, Seventh Edition, Part 1_: Pages 301-323
     - This section provides a conceptual overview of the memory subsystem and the services it provides to both user-mode and kernel-mode components.
 - _Windows Internals, Seventh Edition, Part 1_: Pages 332-347

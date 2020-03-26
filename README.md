@@ -40,7 +40,7 @@ Happy hacking.
 - [The Windows Memory Management Subsystem and the Memory Management API](./memory-subsystem)
 - [The Portable Executable File Format](./pe-format)
 - [Loading and Executing a Windows Executable](./pe-execution)
-- [Dynamic Link Libraries](./dynamic-libraries)
+- [Static and Dynamic Libraries](./libraries)
 - [Windows Service Applications](./services)
 - [System Service Dispatching on Windows](./system-service-dispatching)
 - [The Windows Security Model and Programming Windows Security](./security-model)

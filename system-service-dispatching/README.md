@@ -10,6 +10,8 @@ This module covers, to a high degree of detail, the process by which user-mode a
     - This section provides an in-depth look at system service dispatching and the specifics of how it is implemented on x86/x86_64 platforms.
 - _Windows Internals, Sixth Edition, Part 1_: Pages 132-140
     - This section provides a concise overview of system service dispatch.
+- _Windows Internals, Sixth Edition, Part 1_: Page 225
+    - This short section describes the way in which the Windows on Windows64 (WoW64) mechanism interdicts system calls and virtualizes the underlying operating system to the point that 32-bit applications may run transparently on 64-bit platforms. 
 
 ### Optional Reading Material
 

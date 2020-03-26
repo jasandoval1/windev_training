@@ -10,3 +10,5 @@ This module picks up where the previous module left off by exploring the various
     - This section covers the basics of user-mode asynchronous procedure calls (APCs).
 - _Windows 10 System Programming_: "Thread Synchronization (Inter-Process)"
     - This section skips much of the conceptual background provided by the previously cited references in favor practical examples of use of the various kernel synchronization primitives.
+- _Windows Internals, Sixth Edition, Part 1_: Pages 183-205
+    - This section describes the underlying system mechanisms that implement kernel synchronization objects (dispatcher objects).  

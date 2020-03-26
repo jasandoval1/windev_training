@@ -4,6 +4,8 @@ This section explores the deepest depths of the Windows operating system environ
 
 ### Reading Material
 
+- _Windows Internals, Sixth Edition, Part 1_: Pages 248-269
+    - This section provides some of the only information (endorsed by Microsoft, that is) available regarding the implementation of the Hyper-V hypervisor.
 - _Windows Internals, Seventh Edition, Part 1_: Pages 123-129
     - This section provides an overview of _trustlets_ - applications that run in the user-mode component of virtual trust level (VTL) 1 (i.e. isolated user mode [IUM]). 
 - Windows Internals, Seventh Edition, Part 1_: Pages 768-769
