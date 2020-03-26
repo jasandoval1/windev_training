@@ -24,7 +24,7 @@ Happy hacking.
 ### Training Modules
 
 - [Introduction to Programming on Windows and the Win32 API](./introduction)
-- [Setting up a Development Environment: Visual Studio](./development-environment)
+- [Development Environment Setup and Windows Development Tools](./development-environment)
 - [Working with Strings and Text](./strings-and-text)
 - [Handling Errors in Windows Applications](./error-handling)
 - [Essential Input / Output Operations](./user-io)
