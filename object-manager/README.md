@@ -4,6 +4,8 @@ This section provides both the conceptual background regarding how Windows manag
 
 ### Reading Material
 
+- _Windows Via C/C++, Fifth Edition_: Pages 33-67
+    - This section describes the manner in which Windows manages system resources via kernel objects and the way in which user-mode applications can manipulate these kernel objects through the abstraction provided by handles. 
 - _Windows 10 System Programming_: "Objects and Handles"
     - This section provides a pragmatic overview of kernel objects and how they may be managed via the Win32 API.
 - _Windows Internals, Sixth Edition, Part 1_: 140-176
