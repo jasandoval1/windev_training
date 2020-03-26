@@ -8,5 +8,5 @@ This section provides both the conceptual background regarding how Windows manag
     - This section describes the manner in which Windows manages system resources via kernel objects and the way in which user-mode applications can manipulate these kernel objects through the abstraction provided by handles. 
 - _Windows 10 System Programming_: "Objects and Handles"
     - This section provides a pragmatic overview of kernel objects and how they may be managed via the Win32 API.
-- _Windows Internals, Sixth Edition, Part 1_: 140-176
+- _Windows Internals, Sixth Edition, Part 1_: Pages 140-176
     - This section provides the conceptual background necessary to understand the Windows Object Manager and the role it plays in both resource management and security. 
