@@ -14,3 +14,7 @@ This module will cover the essentials of working with strings and text on Window
     - This article provides your one-stop-shop for character and string manipulation functions provided by the C Runtime Library.
 - [MSDN: Strsafe](https://docs.microsoft.com/en-us/windows/win32/menurc/strsafe-ovw)
     - This article provides an overview of the _strsafe_ API (provided by the `strsafe.h` header) which provides an alternative API for working with strings exported directly by Windows.
+
+### Exercises
+
+- [Examining Strings in Memory](./strings-in-memory)

@@ -19,3 +19,7 @@ This module will cover the essentials of the error handling facilities provided 
     - A video that nicely complements the article cited above with the additional benefit that it provides information regarding how language-specific exception implementations leverage the underlying SEH mechanism on Windows. Again, specific to 32-bit versions of Windows.
 - [External Article: Exceptional Behavior: x64 Structured Exception Handling](http://www.osronline.com/article.cfm%5Earticle=469.htm)
     - Finally, an explanation of how 64-bit versions of MSVC implement SEH.
+
+### Exercises
+
+- [`GetLastError()` Internals](./get-last-error)
