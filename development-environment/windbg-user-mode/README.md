@@ -317,6 +317,6 @@ Once we get to the `ret` instruction, lets check the return value prior to retur
 rax=0000000000000000
 ```
 
-So the system call executed successfully. Clear the existing breakpoints with `bc` followed by the breakpoint index prior to returning control to the application - the `CreateFileW()` function is called many times in succession when the _Open_ dialog of Notepad is used, so failed to clear these breakpoints will result in a long process of hitting `g` repeatedly before finally getting back to the application.
+So the system call executed successfully. Clear the existing breakpoints with `bc` followed by the breakpoint index prior to returning control to the application - the `CreateFileW()` function is called many times in succession when the _Open_ dialog of Notepad is used, so failing to clear these breakpoints will result in a long process of hitting `g` repeatedly before finally getting back to the application.
 
 Once control is returned to Notepad, the file you selected should open successfully.
