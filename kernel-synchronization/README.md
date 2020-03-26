@@ -6,6 +6,8 @@ This module picks up where the previous module left off by exploring the various
 
 - _Windows System Programming, Fourth Edition_: Pages 279-289
     - This section covers the three most popular kernel synchronization objects: mutexes, semaphores, and events.
+- _Windows Via C/C++, Fifth Edition_: Pages 241-288
+    - This section provides an alternative description of kernel synchronization objects exposed by the Win32 API, as well as some more advanced usage patterns. Note that their is significant overlap with the previously listed resource; choose one to read as the primary and subsequently skim the other to address any content discrepancies.
 - _Windows System Programming, Fourth Edition_: Pages 366-371
     - This section covers the basics of user-mode asynchronous procedure calls (APCs).
 - _Windows 10 System Programming_: "Thread Synchronization (Inter-Process)"
