@@ -70,5 +70,6 @@ The list below enumerates the major reading materials referenced throughout this
 - _Windows Kernel Programming_ by Pavel Yosifovich
 - _The Rootkit Arsenal, Second Edition_ by Reverend Bill Blunden
 - _Rootkits and Bootkits_ by Matrosov et. al.
+- _CLR via C#, Fourth Edition_ by Jeffrey Richter
 
 In addition to these primary references, additional materials may be listed under the reading materials for a particular topic. In these cases, a mechanism to access the cited material will be provided.
