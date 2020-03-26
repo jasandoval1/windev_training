@@ -269,7 +269,7 @@ Because this is `CreateFileW()`, the argument is a Unicode string. We can use th
 Finally, lets set one more breakpoint, this time on the system service within `NTDLL` that is invoked by `CreateFileW()` to actually do the heavy lifting of file I/O. 
 
 ```
-bp nt!ntcreatefile
+bp ntdll!ntcreatefile
 ```
 
 Now return control to the application with the `g` command. The application should break back into the debugger immediately. 
