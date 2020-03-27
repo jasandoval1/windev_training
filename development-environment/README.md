@@ -19,3 +19,5 @@ This module provides an introduction to the most important tools that Windows pr
 
 - [User Mode Debugging Essentials (WinDbg)](./windbg-user-mode)
 - [User Mode Debugging Essentials (Visual Studio)](./vs-debugging)
+- [Unit Testing Essentials (Visual Studio and Microsoft Unit Testing Framework)](./vs-unit-test)
+- [Unit Testing Essentials (CMake and Catch2)](./catch2-unit-test)
