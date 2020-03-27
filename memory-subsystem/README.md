@@ -23,4 +23,6 @@ This (information dense) module covers the Windows memory management subsystem a
 
 ### Optional Reading Material
 
+### Exercises
 
+- [C/C++ Runtime Memory Allocations and the Heap API](./runtime-heaps)
