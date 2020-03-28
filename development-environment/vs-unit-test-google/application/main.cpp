@@ -1,6 +1,6 @@
 // main.cpp
 //
-// Application entry point. 
+// Application entry point.
 
 #include "utils.hpp"
 #include <iostream>

@@ -5,8 +5,8 @@
 
 TEST_CASE("factorials are computed correctly")
 {
-    REQUIRE(factorial(1) == 1);
-    REQUIRE(factorial(2) == 2);
-    REQUIRE(factorial(3) == 6);
-    REQUIRE(factorial(10) == 3628800);
+    REQUIRE(factorial(1) == 1u);
+    REQUIRE(factorial(2) == 2u);
+    REQUIRE(factorial(3) == 6u);
+    REQUIRE(factorial(10) == 3628800u);
 }
