@@ -2,6 +2,24 @@
 
 This exercise introduces the fundamentals of writing C/C++ unit tests and integrating them with CMake projects.
 
+### Background
+
+Catch2 is a unit testing framework for C/C++ code. Catch2 is a lighter-weight alternative to options like Google Test or Boost Test, and does not require (or support for that matter) integration with Visual Studio. The framework is implemented as a single C++ header file, so using the framework can be as simple as copying the header to your project and including it in the source file that implements your tests. However, Catch2 also supports relatively simple integration with CMake, and this integration drastically increases the power and scalability of testing with Catch2, so this is the approach we will explore here.
+
+### Project Structure
+
+This directory represents the basic structure of a project that implements unit testing with CMake and Catch2. 
+
+First, there is a top-level `CMakeLists.txt` that builds both the primary application (a simple demo application, `demo.exe`) as well as the unit tests. In this simple example, the unit tests are designed to emulate testing of some functionality utilized in our main application - the `factorial()` function declared in the `utils.hpp` header and implemented in `utils.cpp`.
+
+All sources related to the tests themselves are located in the `test/` subdirectory. Here, you will find another `CMakeLists.txt` file that performs a number of interesting functions related to the test suite. 
+
+First, it pulls in the `Catch.cmake` CMake source from the Catch2 dependency directory. This is a CMake source file provided by Catch2 that aids in the integration of Catch2 with CMake - specifically, we use the `catch_discover_tests()` function that it provides to automatically register all of our Catch2 unit tests with CTest. 
+
+Next, we define a static library called `catch-main` that links against Catch2 itself. The only source file provided for the static library is the custom `catch_main.cpp` we have defined. All `catch_main.cpp` does is define the `CATCH_CONFIG_MAIN` preprocessor macro which instructs Catch2 to generate a `main()` function for our test suite. The result of then linking against the `catch-main` static library is that our test suite has main function defined for it that knows how to discover all of our individual test cases.
+
+Finally, we implement the test suite itself in `tests.cpp` and add this file (along with the source file from the `src/` directory that contains the function that it exercises) to a new executable target that links against the `catch-main` library described above.
+
 ### Procedure
 
 Build the sample application with CMake and your favorite generator. For instance, using Ninja:
