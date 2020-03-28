@@ -21,5 +21,4 @@ This module provides an introduction to the most important tools that Windows pr
 - [User Mode Debugging Essentials (Visual Studio)](./vs-debugging)
 - [Unit Testing Essentials (Visual Studio and Microsoft Unit Testing Framework)](./vs-unit-test-ms)
 - [Unit Testing Essentials (Visual Studio and Google Test)](./vs-unit-test-google)
-- [Unit Testing Essentials (Visual Studio and Boost.Test)](./vs-unit-test-boost)
 - [Unit Testing Essentials (CMake and Catch2)](./catch2-unit-test)
