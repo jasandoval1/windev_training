@@ -6,6 +6,7 @@
 
 // include declarations for functions under test
 #include <utils.hpp>
+
 TEST(FactorialTest, FactorialCompute) 
 {
     EXPECT_EQ(factorial(1), 1u);
