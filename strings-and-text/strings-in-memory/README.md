@@ -4,10 +4,10 @@ This exercise will walk you through examining the in-memory structure of the dif
 
 ### Procedure
 
-Build the provided executable `strings.cpp`:
+Build the provided executable `strings.c`:
 
 ```
-cl /EHsc /nologo /std:c++17 /W4 string.cpp /link /DEBUG
+cl /nologo /W4 strings.c /link /DEBUG
 ```
 
 The final portion of the command above, `/link /DEBUG` passes the `/DEBUG` flag to the linker, instructing the linker to output debug symbols in a program database (.pdb) file with the build.
@@ -18,105 +18,80 @@ When the program is launched under the debugger, the debugger breaks at the init
 
 ```
 0:000> g
-(2bb8.3888): Break instruction exception - code 80000003 (first chance)
+(6ddc.9508): Break instruction exception - code 80000003 (first chance)
 strings!main+0x4:
-00007ff6`33976c44 cc              int     3
+00007ff6`92146b94 cc              int     3
 ```
 
-Here we will begin single-stepping though the program to exercise fine-grained control. 
+Reviewing the source of `strings.c` reveals the overall layout of the program:
 
-Using the `u` command to unassemble the current instruction stream reveals the location of the call to the first string constructor.
+- Allocate some memory on the heap for both an ANSI string and a Unicode string
+- Copy text to the allocated memory regions
+- Free the allocated memory
 
-```
-0:000> u
-strings!main+0x4:
-00007ff6`33976c44 cc              int     3
-00007ff6`33976c45 4c8d05c4620600  lea     r8,[strings!__xt_z+0x110 (00007ff6`339dcf10)]
-00007ff6`33976c4c ba00010000      mov     edx,100h
-00007ff6`33976c51 488d4c2428      lea     rcx,[rsp+28h]
-00007ff6`33976c56 e8d4c9ffff      call    strings!ILT+9770(??0stringQEAA_KPEBDZ) (00007ff6`3397362f)
-```
+In order to examine the structure of the strings in memory, we need the acquire the address of the location on the heap where the string buffers are located; this is why we have broken into the the program prior to the allocations. 
 
-Single step program execution up to the `call` instruction with either `t` or `p`, then step over the `call` with `p`.
-
-```
-0:000> p
-strings!main+0x16:
-00007ff6`33976c56 e8d4c9ffff      call    strings!ILT+9770(??0stringQEAA_KPEBDZ) (00007ff6`3397362f)
-0:000> p
-strings!main+0x1b:
-00007ff6`33976c5b 90              nop
-```
-
-The return value of the constructor is now stored in the local variable on the stack of the `main()` function. The constructor returns this value in the `rax` register. Use the `r` command to dump the value in `rax`.
+There are many ways we could advance through the program's execution and retrieve the address returned by the dynamic memory allocation routines (in this case, `HeapAlloc()`), but for the purposes of this exercise, we are going to keep it as simple as possible. Use the `u` command to unassemble the program's instruction sequence, we can see the location at which the first call to `HeapAlloc()` is made. Single-step to the location of this call (using either `t` or `p`) and subsequently step over (`p`) the call to `HeapAlloc()`. The MSVC x64 calling convention states that scalar return values that fit into 64 bits are returned in the RAX register; `HeapAlloc()` simply returns a pointer to the allocated memory buffer, so it fits this description. Thus, immediately after the call to `HeapAlloc()`, we can retrieve the function's return value by dumping the contents of RAX:
 
 ```
 0:000> r rax
-rax=0000000a844ffc08
+rax=0000014338808600
 ```
 
-Record this value as we will need it later. Next, perform the same sequence of steps for the wide string. Unassembling the current instruction stream again reveals that the wide string constructor will be invoked in short order.
+Record this value as we will make use of it later. This is the address on the heap at which our string will live. We can view the current contents of memory at this location with `db` to verify that it is currently unoccupied.
 
 ```
-0:000> u
-strings!main+0x1b:
-00007ff6`33976c5b 90              nop
-00007ff6`33976c5c 4c8d05bd620600  lea     r8,[strings!__xt_z+0x120 (00007ff6`339dcf20)]
-00007ff6`33976c63 ba00010000      mov     edx,100h
-00007ff6`33976c68 488d4c2420      lea     rcx,[rsp+20h]
-00007ff6`33976c6d e8ccb0ffff      call    strings!ILT+3385(??0wstringQEAA_KPEB_WZ) (00007ff6`33971d3e)
+0:000> db 0000014338808600
+00000143`38808600  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808610  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808620  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808630  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808640  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808650  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808660  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808670  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
 ```
 
-Again, single step up to the `call` instruction with either `t` or `p` and subsequently step over the `call` with `p`. Dump the return value from the wide string constructor with `r` once again.
+In a similar manner, step through and then over the next call to `HeapAlloc()` that allocates storage for our second string, and then dump the contents of RAX:
 
 ```
 0:000> r rax
-rax=0000000a844ffc00
+rax=0000014338809450
 ```
 
-We now have the address of the start of both the standard string and the wide string on the stack of the `main()` function. We can now use these addresses to locate the raw memory buffers in which the strings are stored. 
+Now that space for the strings has been allocated, we proceed with filling the buffers with string content. The source of `strings.c` simply uses the C Runtime functions `strcpy_s()` and `wcscpy_s()` to copy the ANSI and Unicode string literals to the allocated buffers, respectively. Step over these two calls, and then use dump the contents of memory at the string buffer locations with `db`.
 
-The sole member of both the string and wide string structures is the address of the start of the raw string buffer on the heap. Therefore, we can use the `dq` command to dump this address from the structure start addresses on the stack.
-
-For the standard string structure:
+The ANSI string appears as expected; each character is encoded as a single byte, and the string is terminated by a null character, `00`: 
 
 ```
-0:000> dq /c1 0000000a844ffc08
-0000000a`844ffc08  00000116`0b428600
-...
+0:000> db 0000014338808600
+00000143`38808600  68 65 6c 6c 6f 20 77 6f-72 6c 64 00 0d f0 ad ba  hello world.....
+00000143`38808610  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808620  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808630  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808640  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808650  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808660  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38808670  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
 ```
 
-And similarly for the wide string structure:
+The Unicode string also displays the expected format; each character is represented by a two-byte value, with the least significant byte preceding the most significant byte in memory, and the string is terminated by a wide null character (`00 00`):
 
 ```
-0:000> dq /c1 0000000a844ffc00
-0000000a`844ffc00  00000116`0b429450
-...
+0:000> db 0000014338809450
+00000143`38809450  68 00 65 00 6c 00 6c 00-6f 00 20 00 77 00 6f 00  h.e.l.l.o. .w.o.
+00000143`38809460  72 00 6c 00 64 00 00 00-0d f0 ad ba 0d f0 ad ba  r.l.d...........
+00000143`38809470  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38809480  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`38809490  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`388094a0  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`388094b0  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
+00000143`388094c0  0d f0 ad ba 0d f0 ad ba-0d f0 ad ba 0d f0 ad ba  ................
 ```
 
-Finally, we can use these two addresses to dump the raw string buffers with `db`.
-
-For the standard string:
+Windows debuggers also include the `du` command that allows us to display the contents of a Unicode string in a more human-readable format. 
 
 ```
-0:000> db 00000116`0b428600
-00000116`0b428600  68 65 6c 6c 6f 20 77 6f-72 6c 64 00 00 00 00 00  hello world.....
-00000116`0b428610  00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00  ................
-```
-
-And similarly for the wide string:
-
-```
-0:000> db 00000116`0b429450
-00000116`0b429450  68 00 65 00 6c 00 6c 00-6f 00 20 00 77 00 6f 00  h.e.l.l.o. .w.o.
-00000116`0b429460  72 00 6c 00 64 00 00 00-00 00 00 00 00 00 00 00  r.l.d...........
-```
-
-The difference between the in-memory representation of these two string types is immediately apparent.
-
-The `du` command can be used to display unicode strings in a more readily-readable format:
-
-```
-0:000> du 00000116`0b429450
-00000116`0b429450  "hello world"
+0:000> du 0000014338809450
+00000143`38809450  "hello world"
 ```
