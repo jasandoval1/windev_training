@@ -152,17 +152,20 @@ TEST(ListTest, InsertMultithreaded)
 	list_t* l = list_create(custom_print_point, custom_delete_point);
 	ASSERT_NE(l, nullptr);
 
+	// create some threads, each of which will perform some number of insertions
 	auto threads = std::vector<std::thread>{};
 	for (auto base = 0; base < MULTITHREADED_TEST_N_THREADS; ++base)
 	{
 		threads.emplace_back(insert_async, l, MULTITHREADED_TEST_INSERTS_PER_THREAD * base);
 	}
 
+	// wait for the threads to finish
 	for (auto& t : threads)
 	{
 		t.join();
 	}
 
+	// verify that the list contains all of the expected elements
 	EXPECT_EQ(list_size(l), MULTITHREADED_TEST_N_THREADS * MULTITHREADED_TEST_INSERTS_PER_THREAD);
 
 	list_destroy(l);
