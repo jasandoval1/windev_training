@@ -4,9 +4,9 @@ This module provides a brief introduction to the Windows programming environment
 
 ### Learning Objectives
 
-- Major similarities and differences between the Win32 API and the API utilized when developing on *NIX systems (typically C Runtime routines)
-- Windows data types and non-intuitive type definitions (e.g. `typdef int BOOL`)
-- Microsoft Developer Network (MSDN) online documentation
+- Identify major similarities and differences between the Win32 API and the API utilized when developing on *NIX systems (typically C Runtime routines)
+- Review Windows data types and non-intuitive type definitions (e.g. `typdef int BOOL`)
+- Get familiar with Microsoft Developer Network (MSDN) online documentation
 
 ### Reading Material
 
@@ -15,4 +15,11 @@ This module provides a brief introduction to the Windows programming environment
 - _Windows Internals, Seventh Edition, Part 1_: Pages 1-8
     - This section provides a brief overview of some information that is nonetheless incredibly valuable, including the Windows version history and the definition of some critical Windows technologies such as the Win32 API, the .NET Framework (now deprecated in favor of .NET Core), and the Windows Runtime.
 - [MSDN: Windows Data Types](https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types)
+
+### Checks on Learning
+
+- What is the Windows type used to reference and manage operating system resources within a process? How is this type similar to UNIX file descriptors? How is it different?
+- Provide one example of an instance in which you would utilize the C Runtime Library's implementation of some functionality over the implementation provided by the Win32 API.
+- Provide one example of an instance in which you would utilize the Win32 API's implementation of some functionality over the implementation provided by the C Runtime Library.
+- What is the SDK-provided header in which you can find the type definitions for standard Windows data types? How do access this file?
     
