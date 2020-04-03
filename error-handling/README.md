@@ -4,12 +4,12 @@ This module will cover the essentials of the error handling facilities provided 
 
 ### Learning Objectives
 
-- `GetLastError()` and `FormatMessage()` usage
-- Error code lookup options
-- Structured Exception Handling (SEH) usage
-- Error handling strategies (e.g. when to use SEH)
-- `GetLastError()` implementation details
-- SEH implementation
+- Become familiar with `GetLastError()` and `FormatMessage()` usage
+- Learn error code lookup options
+- Become familiar with Structured Exception Handling (SEH) usage
+- Explore different error handling strategies (e.g. when to use SEH)
+- Learn the implementation details of Win32's `GetLastError()` function
+- Become familiar with the basics of how Windows implements SEH
 
 ### Reading Material
 
@@ -32,3 +32,15 @@ This module will cover the essentials of the error handling facilities provided 
 ### Exercises
 
 - [`GetLastError()` Internals](./get-last-error)
+
+### Checks on Learning
+
+- What is the difference between an SEH `__except` block and an SEH `__finally` block? 
+- What are the valid options for return from an SEH filter expression?
+- If one wraps the body of a while-loop in an SEH `__try` block, when is the corresponding `__finally` block executed? For instance: `while (...) __try { ... } __finally { ... }`
+- Should SEH be utilized in C++ programs? Is it safe to mix use of both SEH and C++ exceptions?
+- Where is the error code returned by a call to `GetLastError()` maintained? Why does it need to be maintained in this location?
+- What is the effect of passing the following flags to `cl.exe`:
+    - `/EHs`
+    - `/EHa`
+    - `/EHc`

@@ -4,12 +4,12 @@ This module will cover the essentials of working with strings and text on Window
 
 ### Learning Objectives
 
-- MBCS and Unicode character encodings
-- ANSI and Unicode function usage in the Win32 API
-- MBCS to Unicode string conversion and the various APIs available for performing this conversion
-- Unicode to MBCS string conversion and the various APIs available for performing this conversion
-- Safe string conversion functions
-- Safe string manipulation functions
+- Become familiar with MBCS and Unicode character encodings
+- Learn the distinction between ANSI and Unicode function usage in the Win32 API
+- Understand MBCS to Unicode string conversion and the various APIs available for performing this conversion
+- Understand Unicode to MBCS string conversion and the various APIs available for performing this conversion
+- Become familiar with safe string conversion functions
+- Become familiar with Safe string manipulation functions
 
 ### Reading Material
 
@@ -27,3 +27,13 @@ This module will cover the essentials of working with strings and text on Window
 ### Exercises
 
 - [Examining Strings in Memory](./strings-in-memory)
+
+### Checks on Learning
+
+- What is the native character encoding used by Windows?
+- What is the distinction between the `UNICODE` and `_UNICODE` macro definitions?
+- What is the purpose of the `TCHAR` data type?
+- Within a Windows program, `CreateProcess()`, `CreateProcessA()`, and `CreateProcessW()` all represent valid calls that result in the creation of a new process. What is the distinction between these three invocations?
+- Familiar C Standard Library functions like `strcpy()` and and `strnlen()` have corresponding "secure" implementations that are suffixed with `_s` (e.g. `strcpy_s()` and `strnlen_s()`). What additional functionality do these secure implementations provide over the standard implementations?
+- The Microsoft Visual C/C++ Runtime Library string manipulation functions `strcpy_s()` and `wcscpy_s()` (among others) accept a `dest_size` argument that specifies the size of the destination buffer. In what units is this size expressed?
+- The safe string manipulation functions provided by the Windows `strsafe.h` header often come in two distinct variations e.g. `StringCbCopy()` and `StringCchCopy()`. What is the difference between these implementations?
