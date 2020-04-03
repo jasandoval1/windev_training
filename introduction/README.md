@@ -6,7 +6,7 @@ This module provides a brief introduction to the Windows programming environment
 
 - Identify major similarities and differences between the Win32 API and the API utilized when developing on *NIX systems (typically C Runtime routines)
 - Review Windows data types and non-intuitive type definitions (e.g. `typdef int BOOL`)
-- Get familiar with Microsoft Developer Network (MSDN) online documentation
+- Become familiar with Microsoft Developer Network (MSDN) online documentation
 
 ### Reading Material
 
