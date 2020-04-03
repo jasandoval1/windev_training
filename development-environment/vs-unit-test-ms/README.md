@@ -49,4 +49,4 @@ Accordingly, your test suite should exercise each of these functionalities and v
 - the `TEST_METHOD()` macro
 - the General Assertion macros (i.e. `Assert::`)
 
-A Visual Studio Solution that implements the linked-list and its corresponding test suite is provided in the `reference` directory for your reference. The linked-list implementation in the reference project is thread-safe; this is not a requirement of your implementation (testing multithreaded code is another topic entirely). 
+A Visual Studio Solution that implements the linked-list and its corresponding test suite is provided in the `reference` directory for your reference. The linked-list implementation in the reference project is thread-safe; this is not a requirement of your implementation (testing multithreaded code is another topic entirely). Furthermore, the tests provided in the reference implementation should by no means be considered exhaustive; the primary objective of this exercise is to force you to think critically about the tests you need to write in order to convince yourself that your implementation is correct, and only you can make this determination!
