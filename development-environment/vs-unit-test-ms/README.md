@@ -28,6 +28,25 @@ Test Explorer displays the line on which the assertion that triggered the failur
 
 **IMPT**: In some circumstances I have observed a rebuild of the test suite fail to result in a passing test even though I know the implementation to be fixed - as if the Test Explorer is caching the results of previous failed tests and not actually re-running them on demand. I have found that cleaning the entire solution and subsequently building from scratch addresses this issue.
 
-### Further Reading
+### Part 2: Writing your own Test Suite
 
-This exercise presented the structure of a Visual Studio solution that implements unit testing. It did not, however, go through any of the specific of the Microsoft Unit Testing Framework and the specific functionalities that it provides. The full API available in the Microsoft Unit Testing Framework for testing native (non-managed) code is [documented on MSDN](https://docs.microsoft.com/en-us/visualstudio/test/microsoft-visualstudio-testtools-cppunittestframework-api-reference?view=vs-2019).
+Part 1 presented the structure of a Visual Studio solution that implements unit testing. It did not, however, go through any of the specific of the Microsoft Unit Testing Framework and the specific functionalities that it provides. The full API available in the Microsoft Unit Testing Framework for testing native (non-managed) code is [documented on MSDN](https://docs.microsoft.com/en-us/visualstudio/test/microsoft-visualstudio-testtools-cppunittestframework-api-reference?view=vs-2019).
+
+For Part 2 of this exercise, your task is to implement a simple linked-list data structure and write a corresponding test suite that verifies that your implementation works as expected. You need not implement your linked-list in a static or dynamic library (library development is not the topic of this exercise) - implementing it directly in a console application project will suffice.
+
+At a minimum, your linked-list implementation should support the following operations:
+
+- Create
+- Size / Count
+- Insert 
+- Remove
+- Find / Lookup
+- Destroy
+
+Accordingly, your test suite should exercise each of these functionalities and verify that they work as expected. Consult the [MSDN documentation](https://docs.microsoft.com/en-us/visualstudio/test/microsoft-visualstudio-testtools-cppunittestframework-api-reference?view=vs-2019) for a concise description of the test macros that Microsoft Unit Testing Framework makes available to you. The primary tools of interest will be:
+
+- the `TEST_CLASS()` macro
+- the `TEST_METHOD()` macro
+- the General Assertion macros (i.e. `Assert::`)
+
+A Visual Studio Solution that implements the linked-list and its corresponding test suite is provided in the `reference` directory for your reference. The linked-list implementation in the reference project is thread-safe; this is not a requirement of your implementation (testing multithreaded code is another topic entirely). 
