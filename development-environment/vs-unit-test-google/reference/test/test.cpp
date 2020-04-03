@@ -5,10 +5,17 @@
 #include "gtest/gtest.h"
 
 #include <thread>
+#include <vector>
+#include <future>
 #include <stdio.h>
 #include <string.h>
 
 #include <list.hpp>
+
+constexpr auto MULTITHREADED_TEST_N_THREADS          = 5;
+constexpr auto MULTITHREADED_TEST_INSERTS_PER_THREAD = 10;
+constexpr auto MULTITHREADED_TEST_FIND_TOTAL_INSERT  = 10;
+constexpr auto MULTITHEADED_TEST_REMOVE_TOTAL_INSERT = 100;
 
 typedef struct point
 {
@@ -128,17 +135,122 @@ TEST(ListTest, Remove)
 	list_destroy(l);
 }
 
+void insert_async(list_t* list, int base_value)
+{
+	for (auto i = 0; i < MULTITHREADED_TEST_INSERTS_PER_THREAD; ++i)
+	{
+		point_t* p = (point_t*)calloc(1, sizeof(point_t));
+		p->x = base_value + i;
+		p->y = base_value + i;
+
+		list_insert(list, base_value + i, p);
+	}
+}
+
 TEST(ListTest, InsertMultithreaded)
 {
+	list_t* l = list_create(custom_print_point, custom_delete_point);
+	ASSERT_NE(l, nullptr);
 
+	auto threads = std::vector<std::thread>{};
+	for (auto base = 0; base < MULTITHREADED_TEST_N_THREADS; ++base)
+	{
+		threads.emplace_back(insert_async, l, MULTITHREADED_TEST_INSERTS_PER_THREAD * base);
+	}
+
+	for (auto& t : threads)
+	{
+		t.join();
+	}
+
+	EXPECT_EQ(list_size(l), MULTITHREADED_TEST_N_THREADS * MULTITHREADED_TEST_INSERTS_PER_THREAD);
+
+	list_destroy(l);
+}
+
+void* find_async(list_t* list, uint32_t key)
+{
+	return list_find(list, key);
 }
 
 TEST(ListTest, FindMultithreaded)
 {
+	list_t* l = list_create(custom_print_point, custom_delete_point);
+	ASSERT_NE(l, nullptr);
 
+	// insert 10 points
+	for (auto i = 0; i < MULTITHREADED_TEST_FIND_TOTAL_INSERT; ++i)
+	{
+		point_t* p = (point_t*)calloc(1, sizeof(point_t));
+		p->x = i;
+		p->y = i;
+
+		EXPECT_EQ(list_insert(l, i, p), 0);
+	}
+
+	EXPECT_EQ(list_size(l), MULTITHREADED_TEST_FIND_TOTAL_INSERT);
+
+	// launch 10 async tasks to search the list for existing keys
+	auto futures = std::vector<std::future<void*>>{};
+	for (auto i = 0; i < 10; ++i)
+	{
+		futures.emplace_back(std::async(std::launch::async, find_async, l, i));
+	}
+
+	// ensure that all of the find operations succeeded
+	for (auto& f : futures)
+	{
+		EXPECT_NE(f.get(), nullptr);
+	}
+
+	list_destroy(l);
+}
+
+void remove_async(list_t* list, uint32_t base_key)
+{
+	auto max_key = base_key +
+		(MULTITHEADED_TEST_REMOVE_TOTAL_INSERT / MULTITHREADED_TEST_N_THREADS);
+
+	for (auto key = base_key; key < max_key; ++key)
+	{
+		point_t* p = (point_t*) list_remove(list, key);
+		free(p);
+	}
 }
 
 TEST(ListTest, RemoveMultithreaded)
 {
+	list_t* l = list_create(custom_print_point, custom_delete_point);
+	ASSERT_NE(l, nullptr);
 
+	// insert 100 points
+	for (auto i = 0; i < MULTITHEADED_TEST_REMOVE_TOTAL_INSERT; ++i)
+	{
+		point_t* p = (point_t*)calloc(1, sizeof(point_t));
+		p->x = i;
+		p->y = i;
+
+		EXPECT_EQ(list_insert(l, i, p), 0);
+	}
+
+	EXPECT_EQ(list_size(l), MULTITHEADED_TEST_REMOVE_TOTAL_INSERT);
+
+	// create some threads to remove elements concurrently
+	auto threads = std::vector<std::thread>{};
+	for (auto i = 0; i < MULTITHREADED_TEST_N_THREADS; ++i)
+	{
+		auto base_key = (MULTITHEADED_TEST_REMOVE_TOTAL_INSERT / MULTITHREADED_TEST_N_THREADS) * i;
+		threads.emplace_back(remove_async, l, base_key);
+	}
+
+	// wait for them to finish
+	for (auto& t : threads)
+	{
+		t.join();
+	}
+
+	// ensure that all elements have been successfully removed
+	EXPECT_EQ(list_size(l), 0);
+
+	list_destroy(l);
 }

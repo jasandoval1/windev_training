@@ -300,6 +300,8 @@ void list_destroy(list_t* list)
 		current = list->head;
 	}
 
+	::DeleteCriticalSection(&list->lock);
+
 	free(list);
 }
 
