@@ -2,14 +2,14 @@
 
 This module will cover the essentials of working with strings and text on Windows platforms.
 
-### Learning Objectives
+### Key Concepts
 
-- Become familiar with MBCS and Unicode character encodings
-- Learn the distinction between ANSI and Unicode function usage in the Win32 API
-- Understand MBCS to Unicode string conversion and the various APIs available for performing this conversion
-- Understand Unicode to MBCS string conversion and the various APIs available for performing this conversion
-- Become familiar with safe string conversion functions
-- Become familiar with Safe string manipulation functions
+- Multi-byte character string (MBCS) and Unicode character encodings
+- The distinction between ANSI and Unicode function usage in the Win32 API
+- MBCS to Unicode string conversion and the various APIs available for performing this conversion
+- Unicode to MBCS string conversion and the various APIs available for performing this conversion
+- Safe string conversion functions
+- Safe string manipulation functions
 
 ### Reading Material
 

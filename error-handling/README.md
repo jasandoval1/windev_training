@@ -2,14 +2,14 @@
 
 This module will cover the essentials of the error handling facilities provided by the Win32 API as well as general strategies for managing error conditions when writing Windows applications.
 
-### Learning Objectives
+### Key Concepts
 
-- Become familiar with `GetLastError()` and `FormatMessage()` usage
-- Learn error code lookup options
-- Become familiar with Structured Exception Handling (SEH) usage
-- Explore different error handling strategies (e.g. when to use SEH)
-- Learn the implementation details of Win32's `GetLastError()` function
-- Become familiar with the basics of how Windows implements SEH
+- Windows error handling via `GetLastError()` and `FormatMessage()` usage
+- Error code lookup options
+- Structured Exception Handling (SEH) usage
+- Error handling strategies (e.g. when to use SEH)
+- Implementation details of Win32's `GetLastError()` function
+- How Windows implements SEH
 
 ### Reading Material
 
