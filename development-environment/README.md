@@ -2,16 +2,16 @@
 
 This module provides an introduction to the most important tools that Windows provides to support developers.
 
-### Learning Objectives
+### Key Concepts
 
-- Become familiar with Visual Studio solution / project distinction and organization
-- Learn Visual Studio configuration manager purpose and usage
-- Learn Visual Studio property pages purpose usage
-- Learn Visual Studio custom build events purpose and usage
-- Become familiar with Visual Studio keyboard shortcut definition and usage
-- Become familiar with Microsoft Visual C/C++ Runtime Library description and usage 
-- Become familiar with basic Visual Studio debugger usage 
-- Become familiar with WinDbg debugger usage
+- Visual Studio solution / project distinction and organization
+- Visual Studio configuration manager purpose and usage
+- Visual Studio property pages purpose usage
+- Visual Studio custom build events purpose and usage
+- Visual Studio keyboard shortcut definition and usage
+- Microsoft Visual C/C++ Runtime Library description and usage 
+- Basic Visual Studio debugger usage 
+- Basic WinDbg debugger usage
 
 ### Reading Material
 

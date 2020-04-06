@@ -2,11 +2,11 @@
 
 This module will cover the basics of performing IO operations in user-mode Windows applications.
 
-### Learning Objectives
+### Key Concepts
 
-- Achieve familiarity with the Win32 API functions for creating, opening, reading, writing, and closing files.
-- Learn the basics of console IO and the Windows standard devices.
-- Achieve familiarity with the functions provided by the Win32 API for working with the filesystem. 
+- Win32 API functions for creating, opening, reading, writing, and closing files
+- Console IO and the Windows standard devices
+- Functions provided by the Win32 API for working with the filesystem.
 
 ### Reading Material
 

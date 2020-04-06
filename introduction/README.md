@@ -2,11 +2,11 @@
 
 This module provides a brief introduction to the Windows programming environment, often by way of contrast with the *NIX programming environment with which most developers possess a greater degree of experience. 
 
-### Learning Objectives
+### Key Concepts
 
-- Identify major similarities and differences between the Win32 API and the API utilized when developing on *NIX systems (typically C Runtime routines)
-- Review Windows data types and non-intuitive type definitions (e.g. `typdef int BOOL`)
-- Become familiar with Microsoft Developer Network (MSDN) online documentation
+- Major similarities and differences between the Win32 API and the API utilized when developing on *NIX systems (typically C Runtime routines)
+- Windows data types and non-intuitive type definitions (e.g. `typdef int BOOL`)
+- Microsoft Developer Network (MSDN) online documentation
 
 ### Reading Material
 
