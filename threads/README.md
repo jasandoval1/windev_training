@@ -2,6 +2,15 @@
 
 This module provides both a conceptual introduction to Windows threads as well as a practical overview of the thread management API exposed by Win32.
 
+### Key Concepts
+
+- Distinctions between the Win32 thread API and *nix thread APIs (specifically, pthreads)
+- Creating and managing threads
+- Thread termination
+- Thread scheduling
+- Process priority classes and thread priorities
+- Basic thread internals
+
 ### Reading Material
 
 - _Windows System Programming, Fourth Edition_: Pages 223-256
@@ -19,3 +28,13 @@ This module provides both a conceptual introduction to Windows threads as well a
 
 - _Windows Internals, Seventh Edition, Part 1_: Pages 214-297
     - This section covers the gory details of thread scheduling, context switching, priority boosts, etc.
+
+### Checks on Learning
+
+- What is the return value of Win32's `CreateThread()` function? How does this compare to the return value of `pthread_create()`?
+- Assuming one possess a handle to the thread in question, what is one mechanism one may use to wait for thread termination?
+- What is the difference, if any, between returning from a thread's entry procedure and manually invoking `ExitThread()`?
+- What is the primary consideration utilized by the Windows Dispatcher when making scheduling determinations?
+- How is a thread's priority determined?
+- What is the primary user-mode thread management structure?
+- What is the primary kernel-mode thread management structure?
