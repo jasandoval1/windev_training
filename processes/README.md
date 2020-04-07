@@ -26,6 +26,10 @@ This module provides both a conceptual introduction to Windows processes as well
 - _Windows Internals, Seventh Edition, Part 1_: Pages 129-154
     - This section provides the nitty-gritty details behind a call to `CreateProcess()`.
 
+### Exercises
+
+- [Enumerating Process](./process-enumeration)
+
 ### Checks on Learning
 
 - Among what are typically consider "normal" user-mode processes, there remain important distinctions between Windows process types. What are the five (5) distinct types of user-mode processes?
