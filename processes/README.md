@@ -32,7 +32,7 @@ This module provides both a conceptual introduction to Windows processes as well
 
 ### Checks on Learning
 
-- Among what are typically consider "normal" user-mode processes, there remain important distinctions between Windows process types. What are the five (5) distinct types of user-mode processes?
+- Among what are typically considered "normal" user-mode processes, there remain important distinctions between Windows process types. What are the five (5) distinct types of user-mode processes?
 - What is the user-mode process management object? 
 - What is the primary Win32 API function used to spawn new Windows processes?
 - Suppose _Process A_ creates _Process B_. What is the final step in process initialization performed in the context of _Process A_?
