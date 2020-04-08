@@ -16,6 +16,10 @@ This section provides an overview of Windows jobs - a mechanism exposed by the W
 - _Windows Internals, Seventh Edition, Part 1_: Pages 176-191
     - This section provides the conceptual background regarding Windows jobs and job objects.
 
+### Exercises
+
+- [Process Management with Jobs: UI Limitations](./ui-limits)
+
 ### Checks on Learning
 
 - What is the Win32 API function one would use to create a new job?
