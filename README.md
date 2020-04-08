@@ -4,7 +4,7 @@ _Updated: March, 2020_
 
 ### Overview
 
-This repository contains an outline a training curriculum designed to develop (pun intended) aspiring Windows developers.
+This repository contains a training curriculum designed to develop (pun intended) aspiring Windows developers.
 
 The outline provided herein assumes the following background knowledge and skills:
 - Working proficiency in the C programming language
