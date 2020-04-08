@@ -29,6 +29,10 @@ This module provides both a conceptual introduction to Windows threads as well a
 - _Windows Internals, Seventh Edition, Part 1_: Pages 214-297
     - This section covers the gory details of thread scheduling, context switching, priority boosts, etc.
 
+### Exercises
+
+- [Multithreading without Synchronization: Counting Primes](./counting-primes)
+
 ### Checks on Learning
 
 - What is the return value of Win32's `CreateThread()` function? How does this compare to the return value of `pthread_create()`?
