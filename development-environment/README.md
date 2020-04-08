@@ -24,6 +24,7 @@ This module provides an introduction to the most important tools that Windows pr
 
 ### Exercises
 
+- [Creating Complex Solutions in Visual Studio](./vs-solutions)
 - [User Mode Debugging Essentials (WinDbg)](./windbg-user-mode)
 - [User Mode Debugging Essentials (Visual Studio)](./vs-debugging)
 - [Unit Testing Essentials (Visual Studio and Microsoft Unit Testing Framework)](./vs-unit-test-ms)
@@ -40,4 +41,5 @@ This module provides an introduction to the most important tools that Windows pr
     - Linker input files
 - What is the purpose of precompiled headers? How do you set up a project to make use of precompiled headers?
 - What are the different variants of the Microsoft Visual C/C++ Runtime Library against which you can link your applications? When are each of these different variants appropriate?
-- The Windows SDK and Windows Store provide a number of symbolic debuggers - WinDbg, WinDbg Preview, `cdb.exe`, etc. How are these tools similar? How are they different? 
+- The Windows SDK and Windows Store provide a number of symbolic debuggers - WinDbg, WinDbg Preview, `cdb.exe`, etc. How are these tools similar? How are they different
+- What is the difference between Debug/Release builds? 
