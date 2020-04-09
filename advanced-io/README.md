@@ -31,6 +31,13 @@ This module combines concepts and practical knowledge gained in previous modules
 - _Windows Internals, Seventh Edition, Part 1_: Pages 297-300
     - This section gives some information regarding the implementation of the _worker factory_ - the kernel component responsible for spawning new threads utilized by user-mode threadpools.
 
+### Exercises
+
+- [Reading a File with Overlapped IO](./overlapped-read)
+- [Reading a File with Extended IO and Completion Routines](./extended-read)
+- [Reading a File with an IO Completion Port](./iocp-read)
+- [Reading a File with the Windows Threadpool](./threadpool-read)
+
 ### Checks on Learning
 
 - What is the significance of a file's file pointer when the file is created or opened with the `FILE_FLAG_OVERLAPPED` flag?
