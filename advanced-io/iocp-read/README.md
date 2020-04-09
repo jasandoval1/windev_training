@@ -1,4 +1,4 @@
-## Exercise: Reading a File with Overlapped IO
+## Exercise: Reading a File with an IO Completion Port
 
 This exercise introduces you to the basic semantics of asynchronous IO operations utilizing IO completion ports.
 
