@@ -2,6 +2,15 @@
 
 This module combines concepts and practical knowledge gained in previous modules to introduce several advanced IO mechanisms exposed by the Win32 API and patterns for their effective use.
 
+### Key Concepts
+
+- The Win32 asynchronous IO API
+- Overlapped IO
+- Extended IO with callback routines
+- IO Completion Ports
+- Asynchronous IO with the Windows threadpool
+- Benefits and drawbacks of using asynchronous IO in your applications
+
 ### Reading Material
 
 - _Windows System Programming, Fourth Edition_: Pages 481-518
@@ -21,3 +30,16 @@ This module combines concepts and practical knowledge gained in previous modules
     - A detailed look under the hood of the modern Windows threadpool implementation.
 - _Windows Internals, Seventh Edition, Part 1_: Pages 297-300
     - This section gives some information regarding the implementation of the _worker factory_ - the kernel component responsible for spawning new threads utilized by user-mode threadpools.
+
+### Checks on Learning
+
+- What is the significance of a file's file pointer when the file is created or opened with the `FILE_FLAG_OVERLAPPED` flag?
+- On successful initiation of an _overlapped_ IO operation, a call to `ReadFile()` or `WriteFile()` returns `FALSE`. What does `GetLastError()` return in this case?
+- What do `ReadFileEx()` and `WriteFileEx()` return on successful initiation of an asynchronous (_extended_) IO operation?
+- When an _overlapped_ IO operation is initiated, such as with `ReadFile()` or `WriteFile()`, an `OVERLAPPED` structure is provided as a formal parameter to the call. Who is responsible for the storage and lifetime of the `OVERLAPPED` structure in the event that the operation is initiated successfully?
+- One member of the `OVERLAPPED` structure is a handle to a Windows event object. Are there any restrictions on the type of event that may be used for this purpose?
+- When an _overlapped_ IO operation is initiated, is it possible to wait on IO completion from a thread in the same process context that is distinct from the one that initiated the operation? From a thread in a different process context?
+- Suppose an _extended_ IO operation is initiated with a specified callback function. When the IO operation eventually completes and this callback function is invoked, in what thread context does this occur?
+- What Win32 API function(s) are used by threads to wait on IO completion port completion events (IO or otherwise)?
+- How does a thread that services IO completion port completion events uniquely identify the IO operation that completed?
+- What determines the number of threads associated with an IO completion port that service completion events? What determines the number of threads that service IO completion events when the Windows threadpool is used?
