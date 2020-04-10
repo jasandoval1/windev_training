@@ -26,4 +26,4 @@ This section provides an overview of Windows jobs - a mechanism exposed by the W
 - What is the Win32 API function one would use to open an existing job?
 - Suppose _Process A_ wants to add _Process B_ to a job. What access rights must _Process A_ specify in a call to `OpenProcess()` in order to subsequently add _Process B_ to a job successfully?
 - Is it possible for a process to belong to more than one job? What are the implications of this?
-- What is one system property that may be controlled via job objects is otherwise inaccessible?
+- What is one system property that may be controlled via job objects that is otherwise inaccessible?
