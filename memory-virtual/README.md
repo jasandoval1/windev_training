@@ -22,6 +22,10 @@ This module covers the high-level architecture of the Windows memory management 
 - _Windows Internals, Seventh Edition, Part 1_: Pages 348-383
     - This section covers the structure of the virtual address space of Windows applications and the process utilized by the kernel to translate virtual addresses to physical addresses.
 
+### Exercises
+
+- [Shared Memory via Memory Protection Attributes](./shared-memory)
+
 ### Checks on Learning
 
 - How does the Windows Heap Manager obtain the memory that it uses to service allocation requests?
