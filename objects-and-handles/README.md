@@ -24,7 +24,7 @@ This section provides both the conceptual background regarding how Windows manag
 - [Sharing Handles: Named Objects](./sharing-named)
 - [Sharing Handles: Inheritance](./sharing-inheritance)
 - [Sharing Handles: Handle Duplication](./sharing-duplication)
-- [Application Single Instancing via Named Kernel Object](./single-instancing)
+- [Application Single Instancing via Named Kernel Objects](./single-instancing)
 
 ### Checks on Learning
 
