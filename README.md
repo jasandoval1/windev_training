@@ -29,7 +29,7 @@ Happy hacking.
 - [Handling Errors in Windows Applications](./error-handling)
 - [Essential Input / Output Operations](./user-io)
 - [Windows System Architecture](./system-architecture)
-- [Windows Kernel Objects and the Windows Object Manager](./object-manager)
+- [Windows Kernel Objects and Handles](./objects-and-handles)
 - [Windows Processes and the Process Management API](./processes)
 - [Windows Jobs and the Job Management API](./jobs)
 - [Windows Threads and the Thread Management API](./threads)
