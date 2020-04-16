@@ -1,6 +1,6 @@
 ## Static and Dynamic Libraries
 
-This module builds on the previous module regarding Windows executables by introducing the other side of the equation: software libraries. 
+This module builds on the previous module regarding the Windows binary file format by introducing software libraries and how they relate to standard executables.
 
 ### Reading Material
 

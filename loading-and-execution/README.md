@@ -1,6 +1,6 @@
-## Loading and Executing a Windows Executable
+## Loading and Executing Windows Binaries
 
-This module builds on the last by exploring the details behind the execution of native applications (i.e. not managed or Windows runtime applications) - how we get from a binary file on disk to execution of the program's entry point in memory.
+This module builds on the last two by exploring the details behind the loading and execution of native Windows binaries (i.e. not managed or Windows runtime applications) - how we get from a binary file on disk to `main()` or `DllMain()`.
 
 ### Reading Material
 
