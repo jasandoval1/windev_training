@@ -31,7 +31,7 @@ This module covers the binary format utilized by native Windows programs - the P
 - Which field in which PE header is the true determinant of whether the image is 32-bit (PE32) or 64-bit (PE32+)?
 - In the context of Portable Executable file parsing, what is the difference between Absolute Virtual Addresses (AVAs) and Relative Virtual Addresses (RVAs)?
 - If a Portable Executable file is loaded at base address `0x80000000` and the AVA of the entry point to some function defined in the file's `.text` section is `0xC123000F`, what is the RVA of the function's entry point?
-If a Portable Executable file is loaded at base address `0x80000000` and the RVA of the entry point to some function defined in the file's `.text` section is `0x1000`, what is the AVA of the function's entry point?
+- If a Portable Executable file is loaded at base address `0x80000000` and the RVA of the entry point to some function defined in the file's `.text` section is `0x1000`, what is the AVA of the function's entry point?
 - Suppose some application source defines a global variable `int g_data = 1337`. In which Portable Executable section would you expect to find the data `1337`?
 - Suppose some application source defines a global variable `const int g_data = 1337`. In which Portable Executable section would you expect to find the data `1337`?
 - Suppose some application source defines a global variable `char* g_str = "hello world"`. In which Portable Executable section would you expect to find the data `"hello world"`?
