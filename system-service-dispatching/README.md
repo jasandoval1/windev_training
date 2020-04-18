@@ -4,6 +4,13 @@ This module covers, in a high degree of detail, the process by which user-mode a
 
 ### Key Concepts
 
+- User-mode versus kernel-mode execution
+- User-mode interfaces to the Windows kernel
+- User-mode to kernel-mode transitions
+- The Windows system call interface
+- System Service Dispatch Table (SSDT)
+- Hardware support for system service dispatch
+
 ### Reading Material
 
 - _The Rootkit Arsenal, Second Edition_: Pages 130-144
@@ -19,6 +26,10 @@ This module covers, in a high degree of detail, the process by which user-mode a
 
 - _The Rootkit Arsenal, Second Edition_: Pages 514-530
     - While nominally about hooking the system service descriptor table (SSDT) as a means of interdicting system calls, this section provides an in-depth look at the internals of the SSDT. 
+- [Intel Software Developer's Manual, Volume 2B: Instruction Set Reference, M-U](https://software.intel.com/en-us/download/intel-64-and-ia-32-architectures-software-developers-manual-volume-2b-instruction-set-reference-m-u) Pages 4-678 - 4-689
+    - Official documentation for the `syscall`, `sysret`, `sysenter`, and `sysexit` instructions.
+- [Intel Software Developer's Manual, Volume 4: Model Specific Registers](https://software.intel.com/en-us/download/intel-64-and-ia-32-architectures-software-developers-manual-volume-4-model-specific-registers) 
+    - Official documentation for `IA32_LSTAR`, `IA32_SYSENTER_CS`, `IA32_SYSENTER_EIP`, and `IA32_SYSENTER_ESP` model specific registers.
 
 ### Checks on Learning
 
