@@ -24,6 +24,10 @@ This module picks up where the previous module left off by exploring the various
 - _Windows Internals, Sixth Edition, Part 1_: Pages 183-205
     - This section describes the underlying system mechanisms that implement kernel synchronization objects (dispatcher objects).  
 
+### Exercises
+
+- [Threadsafe Inter-Process Queue](./interprocess-queue)
+
 ### Checks on Learning
 
 - What are the two states in which Windows dispatcher objects may be?
