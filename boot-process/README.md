@@ -54,7 +54,7 @@ Don't fret. We'll get to the above topics eventually, but first, the basics.
 - How would you view the boot configuration on a modern (Vista and later) Windows system?
 - At what point in the boot process are boot-start drivers loaded? By which program?
 - At what point in the boot process are system-start drivers loaded? By which program?
-- On Windows desktop systems, there are typically two active sessions running: session 0 and session 1 (you can confirm this with a tool such as `winobj.exe` from SysInternals). If there are only two active sessions, why is the case that there are typically three instances of `smss.exe` running on such systems?
+- On Windows desktop systems, there are typically two active sessions running: session 0 and session 1 (you can confirm this with a tool such as `winobj.exe` from SysInternals). If there are only two active sessions, why is it the case that there are typically three instances of `smss.exe` running on such systems?
 - On a Windows desktop system with two active sessions, session 0 and session 1, how many instances of the `csrss.exe` process would you expect to find running?
-- At what point in the boot process are auto-start `SERVICE_AUTO_START` system services started? Which program performs this initialization?
+- At what point in the boot process are auto-start (`SERVICE_AUTO_START`) system services started? Which program performs this initialization?
 - A number of the above questions focus on services and drivers that are automatically loaded and executed by the system at some point during boot and early system initialization. Why do you think such attention is paid to these programs - in the context of OS security subversion, why are such observations relevant?
