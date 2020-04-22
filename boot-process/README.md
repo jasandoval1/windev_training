@@ -2,7 +2,7 @@
 
 This module explores the boot process utilized by Windows systems in the desktop environment - the process may differ markedly on other form factors on which the Windows One Core OS runs such as IOT devices or XBox gaming consoles. 
 
-Note that this module only scratches the surface of this topic. The full story of the boot process on modern computing systems (Windows or otherwise) is far more complex than the model described here and could easily consume an entire training curriculum on its own. For instance, some of important boot-process related topics _not_ covered in this module include:
+Note that this module only scratches the surface of this topic. The full story of the boot process on modern computing systems (Windows or otherwise) is far more complex than the model described here and could easily consume an entire training curriculum on its own. For instance, some of the important boot-process related topics _not_ covered in this module include:
 
 - Master Boot Record (MBR) versus GUID Partition Table (GPT) drive formatting
 - Platform secure boot technology (e.g. Intel BootGuard, ARM Trusted Boot)
