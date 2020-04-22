@@ -21,6 +21,10 @@ This module enumerates the various methods available to synchronize operations a
 - _Windows 10 System Programming_: "Thread Synchronization (Intra-Process)"
     - This section provides an overview of the now-familiar user-mode synchronization primitives and also introduces two new(er) synchronization primitives not explored by the previous references: barriers and waitable addresses.
 
+### Exercises
+
+- [Threadsafe Intra-Process Queue](./intraprocess-queue)
+
 ### Checks on Learning
 
 - It is possible to write both `InterlockedIncrement()` and `_InterlockedIncrement()` in your program source code to atomically increment a 32-bit integral value. What is the distinction between these two invocations?
