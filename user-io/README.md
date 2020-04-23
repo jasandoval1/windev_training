@@ -17,6 +17,10 @@ This module will cover the basics of performing IO operations in user-mode Windo
 - _Windows Via C/C++, Fifth Edition_ Pages 289-305
     - While it encompasses some overlap with the two previous sections, this section provides additional background on the details of synchronous IO operations.
 
+### Exercises
+
+- [Reading Files](./reading-file)
+
 ### Checks on Learning
 
 - How are files represented and managed within the context of a Windows process? How does a program request and obtain access to a specified file?
