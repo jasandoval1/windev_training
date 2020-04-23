@@ -21,11 +21,22 @@ Objectives
 Your output should look similiar to this one
 
 ```
+1: kd> !handle 6c
+
+PROCESS ffffe00128780080
+    SessionId: 1  Cid: 0a80    Peb: 7ff617654000  ParentCid: 0d5c
+    DirBase: 080e5000  ObjectTable: ffffc000d43244c0  HandleCount: <Data Not Accessible>
+    Image: test.exe
+
+Handle Error reading handle count.
+
 006c: Object: ffffe001283ddf20  GrantedAccess: 00100081 (Protected) (Inherit) (Audit) Entry: ffffc000d2d5b1b0
 Object: ffffe001283ddf20  Type: (ffffe001249b49a0) File
     ObjectHeader: ffffe001283ddef0 (new version)
         HandleCount: 1  PointerCount: 32768
         Directory Object: 00000000  Name: \sample.txt {HarddiskVolume3}
+
+
 ```
 
 
