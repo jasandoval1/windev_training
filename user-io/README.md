@@ -19,7 +19,7 @@ This module will cover the basics of performing IO operations in user-mode Windo
 
 ### Exercises
 
-- [Reading Files](./reading-file)
+- [Reading Files](./reading_file)
 
 ### Checks on Learning
 
