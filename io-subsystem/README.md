@@ -45,4 +45,4 @@ This module dives into the nitty-gritty details of the Windows IO subsystem; it 
 - Under what conditions does the system issue a cleanup request (`IRP_MJ_CLEANUP`) against a file object?
 - Under what conditions does the system issue a close request (`IRP_MJ_CLOSE`) against a file object?
 - Under what conditions does the system attempt to cancel an IRP? 
-- Suppose you are a malicious Windows device driver author. Assuming that some user-mode process running on your victim's system makes IO requests to a diver you control, describe how you would create an unkillable process. (Bonus: how long would this "unkillable" process remain unkillable when thread-agnostic IO is not used? When thread-agnostic IO is used?)
+- Suppose you are a malicious Windows device driver author. Assuming that some user-mode process running on your victim's system makes IO requests to a driver you control, describe how you would create an unkillable process. (Bonus: how long would this "unkillable" process remain unkillable when thread-agnostic IO is not used? When thread-agnostic IO is used?)
