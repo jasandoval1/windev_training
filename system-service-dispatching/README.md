@@ -31,6 +31,10 @@ This module covers, in a high degree of detail, the process by which user-mode a
 - [Intel Software Developer's Manual, Volume 4: Model Specific Registers](https://software.intel.com/en-us/download/intel-64-and-ia-32-architectures-software-developers-manual-volume-4-model-specific-registers) 
     - Official documentation for `IA32_LSTAR`, `IA32_SYSENTER_CS`, `IA32_SYSENTER_EIP`, and `IA32_SYSENTER_ESP` model specific registers.
 
+### Exercises
+
+- [Examining the SSDT](./ssdt)
+
 ### Checks on Learning
 
 - What is the difference between the _Interrupt Descriptor Table_ and the _System Service Dispatch Table_?
