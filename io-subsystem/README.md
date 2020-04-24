@@ -1,10 +1,10 @@
-## The I/O Subsystem and I/O Management APIs
+## The Windows I/O Subsystem
 
-This module dives into the nitty-gritty details of the Windows I/O subsystem; it reveals how the I/O operations that have been discussed extensively in previous modules are implemented under the hood within the Windows Executive and Kernel. Mastery of the material in this module is necessary prior to beginning exploration of the exciting world of Windows kernel development - the subject of the next module.
+This module dives into the nitty-gritty details of the Windows IO subsystem; it reveals how the IO operations that have been discussed extensively in previous modules are implemented under the hood within the Windows Executive and Kernel. Mastery of the material in this module is necessary prior to beginning exploration of the exciting world of Windows kernel development - the subject of the next module.
 
 ### Key Concepts
 
-- The Windows Executive IO Subsystem and its components
+- The Windows IO Subsystem and its components
 - The Windows (asynchronous) IO model 
 - The Windows layered device driver model
 - IO Request Packet (IRP)
@@ -28,6 +28,7 @@ This module dives into the nitty-gritty details of the Windows I/O subsystem; it
 
 ### Checks on Learning
 
+- Which Windows Executive subsystems compose the IO Subsystem?
 - Which system resources constitute valid targets for the `CreateFile()` (or `CreateFile2()`) function? That is, what type of Windows object must be identified by the `lpFileName` argument to these functions?
 - Is IRQL a property of the Windows operating system, or the hardware on which it runs?
 - How many distinct IRQL exist on Windows systems running on x86 hardware? How many distinct IRQL exist on Windows systems running on x64 hardware? 

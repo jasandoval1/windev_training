@@ -51,7 +51,7 @@ Happy hacking.
 - [The Windows Boot Process and System Initialization](./boot-process)
 - [User Mode Security Mitigations](./user-security-mitigations)
 - [Kernel Mode Security Mitigations](./kernel-security-mitigations)
-- [The IO Subsystem and IO Management APIs](./io-subsystem)
+- [The Windows IO Subsystem](./io-subsystem)
 - [Windows Kernel Development](./kernel-development)
 - [The Windows Hypervisor and Virtualization Based Security](./virtualization)
 - [The .NET Framework and Managed Application Execution Model](./dotnet)
