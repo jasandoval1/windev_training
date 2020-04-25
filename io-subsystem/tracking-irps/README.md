@@ -30,7 +30,7 @@ Launch the client application from a command prompt; elevation is not required. 
 		nullptr);
 ```
 
-There are a few parameters of interest in this call to `CreateFile()`. The first is the name of the file that we specify - `\??\IrpTracker` - which implies the device created by the support driver is accessible in the global object manager namespace (this namespace is presented in Winobj as `GLOBAL??`). The support driver actually accomplishes this via the creation of a symbolic link at the time it is loaded, but we will explore this topic more in the next module on driver development. The other parameter of interest is the `FILE_FLAG_OVERLAPPED` flag which will allow us to issue asynchronous IO requests to the support driver in the same way that we are used to doing for regular files, Windows sockets, pipes, etc.
+There are a few parameters of interest in this call to `CreateFile()`. The first is the name of the file that we specify - `\??\IrpTracker` - which implies the device created by the support driver is accessible in the global object manager namespace (this namespace is presented in Winobj as `GLOBAL??`). The support driver actually accomplishes this via the creation of a symbolic link at the time it is loaded, but we will explore this topic more in the next module on driver development. The other parameter of interest is the `FILE_FLAG_OVERLAPPED` flag which will allow us to issue asynchronous IO requests to the support driver in the same way we have seen for regular files, Windows sockets, pipes, etc.
 
 This call to `CreateFile()` returns a handle to a file object that represents an open instance of the device managed by the support driver. When it succeeds, you will be prompted to start the first IO operation.
 
@@ -145,7 +145,7 @@ Tail.CompletionKey = 00000000
 			Args: 00000000 00000000 0x80002003 00000000
 ```
 
-The first is a new IRP that is performing the same operation as the one we saw before - reading from the console driver device. The second IRP in the list, however, appears to match our expectations perfectly; it is a device IO control (`IRP_MJ_DEVICE_CONTROL`) requets that is being handled by the support driver (`\Driver\IrpTrackerDriver`). The corresponding source in the client application that made this request is as follows:
+The first is a new IRP that is performing the same operation as the one we saw before - reading from the console driver device. The second IRP in the list, however, appears to match our expectations perfectly; it is a device IO control (`IRP_MJ_DEVICE_CONTROL`) request that is being handled by the support driver (`\Driver\IrpTrackerDriver`). The corresponding source in the client application that made this request is as follows:
 
 ```
 ::DeviceIoControl(
