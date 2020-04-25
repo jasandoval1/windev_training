@@ -26,6 +26,10 @@ This module dives into the nitty-gritty details of the Windows IO subsystem; it 
 - _Windows Internals, Seventh Edition, Part 1_: 546-552
     - This section covers IO priorities and IO-related thread priority boosts.
 
+### Exercises
+
+- [Tracking `IRP`s](./tracking-irps)
+
 ### Checks on Learning
 
 - Which Windows Executive subsystems compose the IO Subsystem?
