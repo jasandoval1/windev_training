@@ -32,6 +32,11 @@ Note that the .NET "brand" has grown to encompass a truly impressive number of t
 - _CLR via C#, Fourth Edition_: Pages 583-610
     - This section describes the process by which assembly references are resolved at load time and the fundamentals of runtime reflection within .NET applications.
 
+### Exercises
+
+- [Language Agnosticism of the CLR](./multilingual-assemblies)
+- [Multimodule Assemblies](./multimodule-assemblies)
+
 ### Checks on Learning
 
 - Name two distinct implementations of the .NET platform.
