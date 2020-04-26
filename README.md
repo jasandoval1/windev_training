@@ -54,7 +54,7 @@ Happy hacking.
 - [The Windows IO Subsystem](./io-subsystem)
 - [Windows Kernel Development](./kernel-development)
 - [The Windows Hypervisor and Virtualization Based Security](./virtualization)
-- [The .NET Framework and Managed Application Execution Model](./dotnet)
+- [The .NET Framework and Managed Applications](./dotnet)
 - [The Component Object Model and the Windows Runtime](./windows-runtime)
 
 ### Required Materials
