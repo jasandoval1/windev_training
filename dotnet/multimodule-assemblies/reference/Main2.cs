@@ -1,7 +1,7 @@
-// Main.cs
+// Main2.cs
 //
 // Build
-//  csc /addmodule:Module1.netmodule,Module2.netmodule /out:Main.exe Main.cs
+//  csc /addmodule:Module1.netmodule,Module2.netmodule /out:Main2.exe Main2.cs
 
 class MainClass
 {

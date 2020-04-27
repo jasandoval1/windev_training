@@ -7,3 +7,4 @@ del /s .\*.ilk
 del /s .\*.pdb
 del /s .\*.dll
 del /s .\*.res
+del /s .\*.netmodule
