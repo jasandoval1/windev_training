@@ -1,4 +1,4 @@
-## The .NET and Managed Applications
+## .NET and Managed Applications
 
 This module provides a (brief) introduction to .NET and the execution model utilized by managed applications - applications that target the .NET Framework or .NET Core (the difference between these two will be covered shortly!). While .NET is but one among many technologies built on top of the Windows operating system, it is one that holds a privileged place in the hearts and minds of Microsoft's engineers and Windows application developers alike; a passing familiarity with the platform is a necessary precondition for understanding many of the design decisions introduced in recent versions of Windows.
 
