@@ -25,6 +25,7 @@ This section provides both the conceptual background regarding how Windows manag
 - [Sharing Handles: Inheritance](./sharing-inheritance)
 - [Sharing Handles: Handle Duplication](./sharing-duplication)
 - [Application Single Instancing via Named Kernel Objects](./single-instancing)
+- [Exploring the Process Handle Table](./handle-table)
 
 ### Checks on Learning
 
