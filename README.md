@@ -55,7 +55,7 @@ Happy hacking.
 - [Windows Kernel Development](./kernel-development)
 - [The Windows Hypervisor and Virtualization Based Security](./virtualization)
 - [.NET and Managed Applications](./dotnet)
-- [The Component Object Model and the Windows Runtime](./windows-runtime)
+- [The Component Object Model and the Windows Runtime](./com-winrt)
 
 ### Required Materials
 
@@ -73,5 +73,6 @@ The list below enumerates the major reading materials referenced throughout this
 - _The Rootkit Arsenal, Second Edition_ by Reverend Bill Blunden
 - _Rootkits and Bootkits_ by Matrosov et. al.
 - _CLR via C#, Fourth Edition_ by Jeffrey Richter
+- _Essential COM, First Edition_ by Don Box
 
 In addition to these primary references, additional materials may be listed under the reading materials for a particular topic. In these cases, a mechanism to access the cited material will be provided.
