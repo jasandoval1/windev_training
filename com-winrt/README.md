@@ -22,3 +22,14 @@ This module provides a (brief) introduction to the Component Object Model (COM) 
     - This section provides solutions to common problems and patterns for effective development when interoperating between managed code and the Windows Runtime.
 
 ### Checks on Learning
+
+- How does C++ _name mangling_ limit the portability of C++ libraries distributed as dynamic libraries?
+- How is it possible for modifications limited to private data members of C++ classes to render them incompatible with client applications that are not recompiled to account for these changes?
+- Why are C++ virtual functional calls an appropriate abstraction for implementing portable binary interfaces?
+- Why is it a requirement that COM interfaces are limited to deriving from a single parent interface?
+- Why is it necessary to prevent client code from invoking `delete` on pointers returned by COM factory functions directly?
+- Once a COM interface has been published, is it ever appropriate to modify it?
+- Is it appropriate to implement a COM class that derives from more than one COM interface? 
+- What is the name of the function exposed by COM's `IUnknown` interface that allows for dynamic (runtime) interrogation of the functionality supported by COM object's?
+- What is the name of the function exposed by COM's `IUnknown` interface that increments the reference count for a COM object?
+- What is the name of the function exposed by COM's `IUnknown` interface that decrements the reference count for a COM object? 
