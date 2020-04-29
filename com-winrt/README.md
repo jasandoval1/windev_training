@@ -4,9 +4,15 @@ This module provides a (brief) introduction to the Component Object Model (COM) 
 
 ### Learning Objectives
 
+- Underlying motivation for COM and the Windows Runtime
 - The COM programming model
 - The Windows Runtime vs the Win32 API
 - Windows Runtime implementation
+
+### Reading Material
+
+- [COM as a Better C++](./resources/essential_com_ch1.pdf)
+    - The first chapter from Don Box's _Essential COM, First Edition_. This chapter demonstrates the motivation for COM and subsequently engineers its fundamentals from first principles.
 
 ### Optional Reading Material
 
