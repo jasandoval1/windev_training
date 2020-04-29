@@ -356,7 +356,7 @@ Without further ado we can dump the contents of the object header for our event 
    +0x030 Body             : _QUAD
 ```
 
-The `OBJECT_HEADER` contains plenty of interesting information, but the first one we are going to focus on is the `TypeIndex` field, which will allow us to determine the type of the object to which this header is attached. The type index field reports a value of `0x4f`, but alas using this index to actually locate the corresponding type object is no simple matter - Windows adds a layer of obfuscation here as a security mecahnism (more details regarding the reationale behind this design can be found [in this article](https://medium.com/@ashabdalhalim/a-light-on-windows-10s-object-header-typeindex-value-e8f907e7073a)).
+The `OBJECT_HEADER` contains plenty of interesting information, but the first one we are going to focus on is the `TypeIndex` field, which will allow us to determine the type of the object to which this header is attached. The type index field reports a value of `0x4f`, but alas using this index to actually locate the corresponding type object is no simple matter - Windows adds a layer of obfuscation here as a security mechanism (more details regarding the rationale behind this design can be found [in this article](https://medium.com/@ashabdalhalim/a-light-on-windows-10s-object-header-typeindex-value-e8f907e7073a)).
 
 The first thing we have to do is XOR the type index value with the second-least-significant byte of the address of the object header itself, which in our case is `0xffff9681758b0b00`. The second-least-significant byte is `0x0b`, so this is the value we need to XOR against our type index. 
 
@@ -377,7 +377,7 @@ Evaluate expression: 16 = 00000000`00000010
 So the actual type index we are looking for is 16, or `0x10`. We can now use this value as a valid index into the object type index table, located by the `ntObTypeIndexTable` symbol:
 
 ```
-kd> dt nt!_OBJECT_TYPE poi(nt!ObTypeIndexTable + ( 10 * @$ptrsize ))
+kd> dt nt!_OBJECT_TYPE poi(nt!ObTypeIndexTable + ( 0x10 * @$ptrsize ))
    +0x000 TypeList         : _LIST_ENTRY [ 0xffffbe04`114b8c40 - 0xffffbe04`114b8c40 ]
    +0x010 Name             : _UNICODE_STRING "Event"
    +0x020 DefaultObject    : (null) 
@@ -410,7 +410,7 @@ Above, we were reminded that the overall memory layout for an object and its met
 ------------------------
 ```
 
-So the object header may be preceded from anywhere from zero to five optional headers that provide additional object information. In the event they are present, these object headers are arranged as follows:
+So the object header may be preceded by anywhere from zero to five optional headers that provide additional object information. In the event they are present, these object headers are arranged as follows:
 
 ```
 -------------------------------
@@ -529,7 +529,7 @@ We can use the address reported in the `Object` field to dump the body of the ev
    +0x000 Header           : _DISPATCHER_HEADER
 ```
 
-A major anti-climax... The member of the event object is a `DISPATCHER_HEADER` structure (or at least, this is the only member provided by the public symbols that we have). The `DISPATCHER_HEADER` is an extremely important structure - it is at the heart of how Windows implements kernel-assisted synchronization, and is the underlying structure that provides synchronization functionality for all of the synchronization primitives that we know and love (events, mutexes, semaphores, critical sections, etc.) However, this a huge topic on its own, so examining the internals of how Windows implements sychronization via dispatcher objects will have to wait for a future exercise.
+A major anti-climax... The only member of the event object is a `DISPATCHER_HEADER` structure (or at least, this is the only member provided by the public symbols that we have). The `DISPATCHER_HEADER` is an extremely important structure - it is at the heart of how Windows implements kernel-assisted synchronization, and is the underlying structure that provides synchronization functionality for all of the synchronization primitives that we know and love (events, mutexes, semaphores, critical sections, etc.) However, this a huge topic on its own, so examining the internals of how Windows implements sychronization via dispatcher objects will have to wait for a future exercise.
 
 This concludes our foray into the process handle table and the internals of the Object Manager. Hopefully this exercise has helped you develop an appreciation for just how much is going on behind the scenes to implement the beautiful resource management abstraction presented to us as user-mode programmers via object `HANDLE`s.
 
