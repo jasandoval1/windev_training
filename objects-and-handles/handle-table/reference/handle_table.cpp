@@ -50,8 +50,8 @@ int main(int argc, char* argv[])
     }
 
     std::wcout << "[+] Successfully created event: "
-        << std::wstring_view{event_name, converted-1}
-        << '\n';
+        << std::wstring_view{event_name, converted-1} << '\n'
+        << "[+] Handle value: " << reinterpret_cast<ULONG_PTR>(event) << '\n';
 
     std::cin.get();
 
