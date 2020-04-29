@@ -26,7 +26,7 @@ If the debugger is currently broken into the debug target, resume its execution.
 
 The application simply creates a new Windows event object for which we specify a name on the commandline. The name of the event need not match what is used in the example above, but it should be something recognizable so that we can visually grep for it in the kernel debugging session. The output of executing the application confirms that the event with the specified name was created successfully and also prints the raw handle value returned by the call to `CreateEvent()` in decimal form. After it creates the event, the application simply waits for user input, cleaning up and exiting when the `ENTER` key is received. 
 
-We will use this simple application as a target for our debugging of the handle table and object manager structures. Accordinly, do not exit the application; leave it suspended where it is and break back into the debug target in the kernel debugger.
+We will use this simple application as a target for our debugging of the handle table and object manager structures. Accordingly, do not exit the application; leave it suspended where it is and break back into the debug target in the kernel debugger.
 
 **Locating an Object Handle**
 
@@ -120,7 +120,7 @@ The `ObjectTable` field of the `EPROCESS` structure is slightly misnamed - it is
    +0x060 DebugInfo        : (null) 
 ```
 
-Nothing in this output immediately screams "here is the handle table!" Don't be mislead by the `HandleTableList` field - this is NOT a linked-list of handle table entries for all of the handles in the process (imagine how slow that would be, especially considering the indices for all handles are known ahead of time). Indeed, we need to do some work on our own to actually get to the underlying handle table and locate the entry for our event. The process for doing this is not particularly well documented; in fact, I was unable to find any documentation for this structure whatsoever when preparing this exercise. I developer the procedure below by referring to the [source for ReactOS](https://doxygen.reactos.org/de/d51/ntoskrnl_2ex_2handle_8c_source.html) and backing out the raw handle table structure from its implementation. Accordingly, take the following with a grain of salt as it is subject to change in future releases of Windows. 
+Nothing in this output immediately screams "here is the handle table!" Don't be mislead by the `HandleTableList` field - this is NOT a linked-list of handle table entries for all of the handles in the process (imagine how slow that would be, especially considering the indices for all handles are known ahead of time). Indeed, we need to do some work on our own to actually get to the underlying handle table and locate the entry for our event. The process for doing this is not particularly well documented; in fact, I was unable to find any documentation for this structure whatsoever when preparing this exercise. I developed the procedure below by referring to the [source for ReactOS](https://doxygen.reactos.org/de/d51/ntoskrnl_2ex_2handle_8c_source.html) and backing out the raw handle table structure from its implementation. Accordingly, take the following with a grain of salt as it is subject to change in future releases of Windows. 
 
 The first relevant information we need to be aware of is that the `TableCode` field within the `HANDLE_TABLE` structure contains the address of the base of the raw handle table itself.
 
@@ -438,11 +438,13 @@ The optional headers are always maintained in this order, but again, each header
 
 Each optional header is assigned a single bit in this 5-bit wide field:
 
-- `OBJECT_HEADER_CREATOR_INFO` -> bit 0  (0x1)
-- `OBJECT_HEADER_NAME_INFO`    -> bit 1  (0x2)
-- `OBJECT_HEADER_HANDLE_INFO`  -> bit 2  (0x4)
-- `OBJECT_HEADER_QUOTA_INFO`   -> bit 3  (0x8)
-- `OBJECT_HEADER_PROCESS_INFO` -> bit 4 (0x10)
+|            Header            | Bit Index | Value |
+|:----------------------------:|:---------:|:-----:|
+| `OBJECT_HEADER_CREATOR_INFO` |     0     |   0x1 |
+| `OBJECT_HEADER_NAME_INFO`    |     1     |   0x2 |
+| `OBJECT_HEADER_HANDLE_INFO`  |     2     |   0x4 |
+| `OBJECT_HEADER_QUOTA_INFO`   |     3     |   0x8 |
+| `OBJECT_HEADER_PROCESS_INFO` |     4     |  0x10 |
 
 Thus, the value `0xa`, which translates to the binary `0b10010` indicates that the `OBJECT_HEADER_NAME_INFO` and `OBJECT_HEADER_PROCESS_INFO` optional headers are present.
 
