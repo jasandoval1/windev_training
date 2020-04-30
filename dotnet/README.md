@@ -45,7 +45,7 @@ Note that the .NET "brand" has grown to encompass a truly impressive number of t
 - What is the programming language on which the Common Language Runtime natively operates?
 - What type of file is a _managed module_?
 - In addition to Intermediate Language code, what else are compilers that target .NET required to emit into managed modules?
-- What is the name of the module (dynamic library) that implements the Common Language Runtime?
+- What is the name of the module (dynamic library) that implements* the Common Language Runtime? 
 - Describe the role of the Just-in-Time (JIT) compiler in the Common Language Runtime's execution model.
 - What is meant by the statement that compilers that target .NET produce _safe_ code?
 - What is the name of the collection of dynamic library assemblies that ships with the .NET Framework that contain core type definitions and functionality?
@@ -59,3 +59,7 @@ Note that the .NET "brand" has grown to encompass a truly impressive number of t
 - Can the Common Language Runtime execute an assembly?
 - Is it possible to build a new assembly without all of the files that implement a referenced assembly present?
 - Is it possible to execute an assembly without all of the files that implement a referenced assembly present?
+
+### Additional Notes
+
+- *More accurately, this module actually acts as a _shim_ and determines the correct version of the CLR to load; the CLR itself is actually implemented as a COM server in a separate DLL, but this is beyond the scope of this module.
