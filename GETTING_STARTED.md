@@ -6,6 +6,8 @@ This brief guide will walk you through creating a fork of this project so that y
 
 Navigate to the repository overview page for the `windows_developer_training` project. At the top of the page, select the `fork` option to create a new fork of the repository.
 
+![Fork](./.img/fork.PNG)
+
 Once you have successfully created your fork of the project, grab a local clone of the repository.
 
 ```
