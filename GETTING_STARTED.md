@@ -48,6 +48,8 @@ Because you cloned your local repository from the forked remote, your default re
 
 will work correctly by default.
 
+**IMPT** Under the current permissions configuration, one additional step is required in order to enable pusing to the `master` branch of your fork. The original `windows_developer_training` repository protects the `master` branch from direct pushes without a merge request. This setting is propagated to your fork of the repository, implying that you in turn will not be able to push directly to the `master` branch of your fork. For forked repositories (in this particular case, at least) this is not the desired behavior, so ensure that you modify this configuration in the project settings for your forked repository after creating the fork. Once this is done, pushing to the remote `master` branch of your fork should work as expected.
+
 ### Pulling in Updates
 
 To pull in updates to the training material itself from the original repository, first `fetch` the `master` branch from your `upstream` remote configured above:

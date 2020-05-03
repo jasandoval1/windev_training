@@ -1,7 +1,9 @@
-## Reading Files
-Reading Files using a file handle
+## Exercise: Reading Files
+
+This exercise will introduce you to reading filesystem files using a Windows handle.
 
 ### Background
+
 Knowing how to use file handles and how they work is crucial to understanding the underlying concepts of Windows programming.
 
 ### Project Structure
@@ -10,15 +12,17 @@ This exercise will reinforce the concept of consecutive reads on the same file h
 
 ### Procedure
 
-Objectives
-- Write a program that opens sample.txt and reads in three bytes at a time into a buffer. Once you have finished reading the file, print out the buffer. The output will tell you if you were successful or not.
+Objectives:
+- Write a program that opens the file `sample.txt` and reads three bytes at a time into a buffer. Once you have finished reading the file, print out the buffer's contents. The output will tell you if you were successful or not.
+- After writing the initial program, insert a `debugbreak()` after your first read operation. Compile and run the program in a VM to which you have attached a kernel debugger. Run the program until the debug breakpoint is hit. 
 
-- After writing the initial program, insert a debugbreak() after your first read. Compile and run the program in a kernel mode windbg. Run the program until you hit the debug break, look at RCX to get the handle.
+Examine the contents of the RCX register to determine the value of the handle:
 
+```
+!handle (value in rcx)
+```
 
-`!handle (value in rcx)`
-
-Your output should look similiar to this one
+Your output should appear similar to the following:
 
 ```
 1: kd> !handle 6c
@@ -39,9 +43,7 @@ Object: ffffe001283ddf20  Type: (ffffe001249b49a0) File
 
 ```
 
-
- 
-`dt nt!_OBJECT_HEADER ffffe001283ddef0`
+Use the output from the `!handle` command to locate and subsequently dump the contents of the `OBJECT_HEADER` for the file object:
 
 ```
 1: kd> dt nt!_OBJECT_HEADER ffffe001283ddef0
@@ -70,8 +72,11 @@ Object: ffffe001283ddf20  Type: (ffffe001249b49a0) File
    +0x030 Body             : _QUAD
 ```
 
-`dt nt!_FILE_OBJECT (ffffe001283ddef0 + 0x30)`
+Now parse the body of the file object (`FILE_OBJECT`) itself. The body of the file object immediately follows the object header in memory, so all we need to do is add the size of the `OBJECT_HEADER` to the address of the header's base to locate the body of the file object:
+
 ```
+1: kd>?? sizeof(nt!_OBJECT_HEADER)
+unsigned int64 0x30
 1: kd> dt nt!_FILE_OBJECT (ffffe001283ddef0 + 0x30)
    +0x000 Type             : 0n5
    +0x002 Size             : 0n216
@@ -105,4 +110,4 @@ Object: ffffe001283ddf20  Type: (ffffe001249b49a0) File
    +0x0d0 FileObjectExtension : (null) 
 ```
 
-Look at the CurrentByteOffset field, continue to hit Go(F5) and watch as the number increments
+Examine the `CurrentByteOffset` field. Continue to hit `Go` (F5) and watch as the number increments with each successive read operation.
