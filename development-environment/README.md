@@ -30,7 +30,7 @@ This module provides an introduction to the most important tools that Windows pr
 - [Unit Testing Essentials (Visual Studio and Microsoft Unit Testing Framework)](./vs-unit-test-ms)
 - [Unit Testing Essentials (Visual Studio and Google Test)](./vs-unit-test-google)
 - [Unit Testing Essentials (CMake and Catch2)](./catch2-unit-test)
-- [Kernel Debugging](./kernel_debugging)
+- [Kernel Debugging Setup](./kernel-debugging)
 
 ### Checks on Learning
 
