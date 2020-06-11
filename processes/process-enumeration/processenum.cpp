@@ -62,13 +62,13 @@ int wmain(int argc, wchar_t** argv)
 int enumfunction(void)
 {
 	DWORD processes[PROCESSES_SZ];
-	DWORD bytesNeeded;
-	if (!EnumProcesses(processes, sizeof(processes), &bytesNeeded))
+	DWORD procBytes;
+	if (!EnumProcesses(processes, sizeof(processes), &procBytes))
 	{
 		return 1;
 	}
 
-	for (DWORD i = 0; i < bytesNeeded / sizeof(DWORD); i++)
+	for (DWORD i = 0; i < procBytes / sizeof(DWORD); i++)
 	{
 		HANDLE procHandle = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, processes[i]);
 		wprintf(L"%ul", processes[i]);
@@ -76,10 +76,10 @@ int enumfunction(void)
 		if (NULL != procHandle)
 		{
 			HMODULE hMod;
-			bytesNeeded = 0;
+			DWORD bytesNeeded = 0;
 			if (EnumProcessModules(procHandle, &hMod, sizeof(hMod), &bytesNeeded))
 			{
-				GetModuleBaseName(procHandle, hMod, procName, MAX_PATH / sizeof(WCHAR));
+				GetModuleBaseName(procHandle, hMod, procName, MAX_PATH);
 			}
 			CloseHandle(procHandle);
 		}
