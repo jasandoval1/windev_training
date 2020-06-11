@@ -70,6 +70,8 @@ int enumfunction(void)
 
 	for (DWORD i = 0; i < procBytes / sizeof(DWORD); i++)
 	{
+#define METHOD 0
+#if METHOD   // Module Name method
 		HANDLE procHandle = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, processes[i]);
 		wprintf(L"%ul", processes[i]);
 		WCHAR procName[MAX_PATH] = L"<unknown>";
@@ -84,6 +86,20 @@ int enumfunction(void)
 			CloseHandle(procHandle);
 		}
 		wprintf(L"\t%s\n", procName);
+#endif
+#if !METHOD  // process image name method
+		HANDLE procHandle = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, processes[i]);
+		wprintf(L"%ul", processes[i]);
+		WCHAR procName[MAX_PATH] = L"<unknown>";
+		if (NULL != procHandle)
+		{
+			GetProcessImageFileName(procHandle, procName, MAX_PATH);
+			WCHAR *temp = wcsrchr(procName, '\\');
+			wcsncpy_s(procName, temp, MAX_PATH);
+			CloseHandle(procHandle);
+		}
+		wprintf(L"\t%s\n", procName);
+#endif
 	}
 	return 0;
 }
