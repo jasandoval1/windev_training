@@ -23,6 +23,7 @@ int wmain(int argc, WCHAR** argv)
 	if (!SetInformationJobObject(jobHandle, JobObjectBasicUIRestrictions, &jobUIRestrict, sizeof(JOBOBJECT_BASIC_UI_RESTRICTIONS)))
 	{
 		logError(L"SetInformationJobObject");
+		CloseHandle(jobHandle);
 	}
 	
 
@@ -52,12 +53,14 @@ int wmain(int argc, WCHAR** argv)
 			logError(L"OpenProcess");
 		}
 		//add proc to job obj
-		if (!AssignProcessToJobObject(jobHandle, procHandle))
+		else if (!AssignProcessToJobObject(jobHandle, procHandle))
 		{
 			logError(L"AssignProcessToJobObject");
 		}
+		CloseHandle(procHandle);
 	}
 	//cleanup
+	CloseHandle(jobHandle);
 	return 0;
 }
 
