@@ -1,0 +1,7 @@
+1. a handle to the created thread. pthread_create returns an error number.
+2. WaitForSingleObject, WaitForMultipleObjects
+3. in c calling ExitThread is prefered but calling it in c++ will exit the thread before destructors or cleanup.
+4. speed. during context switches the system is idle
+5. the priority class of the process and the priority level of the thread in that class
+6. TEB
+7. CSR_Thread

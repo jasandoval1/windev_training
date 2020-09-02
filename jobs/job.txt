@@ -1,0 +1,5 @@
+1. CreateJobObject
+2. OpenJobObject
+3. PROCESS_SET_QUOTA, PROCESS_TERMINATE
+4. yes in a hierarchy of nested jobs, the child job has the most restrictive limits of parent jobs
+
